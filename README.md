@@ -18,8 +18,8 @@ To install the project dependencies run `pip install -r requirements.txt`.
 
 ## How to use
 
-To run OpenVR-OSC enter the following in your terminal:
-  `python3 openvr-osc.py`
+To run OpenVR-OSC Unreal enter the following in your terminal:
+  `python3 openvr-osc-unreal.py`
 
 ### Tracked devices
 
@@ -28,7 +28,7 @@ The following devices are tracked and sent via OSC:
 - controllers
 - tracker units
 The OSC messages sent are formated in as follows:
-`\{DEVICE_TYPE}\{DEVICE_ID} - [f,f,f,f,f,f]`
+ `\{DEVICE_ID} - [f,f,f,f,f,f]`
 
 ### OSC message format
 
@@ -98,9 +98,8 @@ To use the trackers and controllers without the need for a headset follow in the
 ## Roadmap
 
 - [ ] period check for device state and new tracked devices
-- [ ] adjustable tracking frequency
-- [ ] adjustable pose tracking mode (euler/quaternion)
-- [ ] unique tracked device ids
+
 
 > Made at ITP NYU
+
 
