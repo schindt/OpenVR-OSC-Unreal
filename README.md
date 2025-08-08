@@ -1,7 +1,7 @@
-# OpenVR OSC
-> Easily track pose data from OpenVR devices via OSC
+# OpenVR OSC Unreal
+> Easily track pose data from OpenVR devices via OSC, especially to Unreal Engine projects.
 
-OpenVR OSC is a compact Python utility for tracking OpenVR devices (HMDs, controllers, trackers) and getting their position and rotation values over OSC. It can be used in VR as well as AR and any other position-based project and fed to any OSC-capable client.
+OpenVR OSC is a compact Python utility for tracking OpenVR devices (HMDs, controllers, trackers) and getting their position and rotation values over OSC. It can be used in VR as well as AR and any other position-based project and fed to any OSC-capable client. This fork contains adjustments to accommodate the differences between the coordinate systems of SteamVR and Unreal Engine.
 
 This project is inspired by and used Triad's [Python OpenVR wrapper](https://github.com/TriadSemi/triad_openvr).
 
@@ -24,7 +24,7 @@ To run OpenVR-OSC enter the following in your terminal:
 ### Tracked devices
 
 The following devices are tracked and sent via OSC:
-- headsets (HMDs)
+- headsets (HMDs, excluding the SteamVR null driver for 'headless VR')
 - controllers
 - tracker units
 The OSC messages sent are formated in as follows:
@@ -43,7 +43,13 @@ In `Euler` mode:
 - roll
 
 In `Quaternion` mode:
- - `TBC`
+- x position
+- y position
+- z position
+- qx
+- qy
+- qz
+- qw
 
 Each tracking cycle is sent as a bundle of individual messages, per device, that are time synced.
 
@@ -74,15 +80,16 @@ There are several configuration options to customize the OSC feed and the tracki
 </details>
 
 <details>
-  <summary>tracking frequency (coming soon)</summary>
-  > coming soon
+  <summary>tracking frequency (in ms)</summary>
+ 
+  `--track=[hmd|controller|tracker]`
 </details>
 
 <details>
-  <summary>pose mode (coming soon)</summary>
-  
-  > coming soon
-</details>
+  <summary>pose mode</summary>
+ 
+    `--mode [euler|quaternion]`
+  </details>
 
 ## Using SteamVR without a headset
 
@@ -96,3 +103,4 @@ To use the trackers and controllers without the need for a headset follow in the
 - [ ] unique tracked device ids
 
 > Made at ITP NYU
+
